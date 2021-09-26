@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="width: 100vw;">
+    <div class="auth">
+        <img src="../img/auth.jpg" alt="">
+        <div class="auth-content">
+            <div class="auth-top">
+                <a href="" class="active">Регистрация</a>
+                <a href="">Вход</a>
+            </div>
+            <h1>Добро пожаловать!</h1>
+            <p class="subtitle">Заполните, чтобы продолжить</p>
+            <form id="auth" name="auth" class="auth-form">
+                <input id="login" type="text" placeholder="Логин/ Почта*">
+                <input id="password" type="password" placeholder="Пароль">
+                <select id="role">
+                    <option selected>В этом проекте я...</option>
+                    <option>Официальный представитель детского дома</option>
+                    <option>Воспитанник детского дома</option>
+                    <option>Волонтёр</option>
+                    <option>Представитель бизнеса (возможные площадки</option>
+                    <option>проведения мероприятий — развлекательные</option>
+                    <option>центры, зоопарки, спортивные секции)</option>
+                    <option>Представитель Правительства региона</option>
+                </select>
+                <div class="checkbox">
+                    <input type="checkbox" name="">Запомнить меня
+                </div>
+                <input class="submit" type="submit" value="Продолжить">
+                <p>Или зарегистрируйтесь через ЕСИЯ</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        auth.onsubmit = (e) => {
+            e.preventDefault()
+
+            const body = {
+                loginParam: login.value,
+                passwordParam: password.value,
+                roleParam: role.options[role.selectedIndex].textContent
+            }
+
+            localStorage.setItem('auth', JSON.stringify(body))
+
+            document.location.href = './detdom.php'
+        }
+    </script>
+</body>
+</html>

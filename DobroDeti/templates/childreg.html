@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="width: 100vw;">
+<div class="auth" class="overflow: auto">
+    <img src="../img/childreg.png" style="object-fit: cover;object-position: center;width: auto;height: 40%;">
+    <div class="auth-content" style="display:flex; align-items:center; justify-content:center;">
+        <form id="childreg" class="auth-form" action="post">
+            <input id="fio" type="text" placeholder="Фамилия Имя Отчество">
+            <div class="radio-line">
+                <p><input type="radio" name="pol">Мужской</p>
+                <p><input type="radio" name="pol">Женский</p>
+            </div>
+            <input id="age" type="text" placeholder="Возраст">
+            <input id="town" type="text" placeholder="Город">
+            <input id="school" type="text" placeholder="Наиминование учереждения">
+
+            <input class="submit" type="submit" value="Завершить регистрацию">
+        </form>
+    </div>
+</div>
+
+<script>
+    childreg.onsubmit = (e) => {
+        e.preventDefault()
+
+        const body = {
+            fioParam: fio.value,
+            ageParam: age.value,
+            townParam: town.value,
+            schoolParam: school.value,
+        }
+
+        localStorage.setItem('childreg', JSON.stringify(body))
+
+        document.location.href = './thanks.php'
+    }
+</script>
+</body>
+</html>

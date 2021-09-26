@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="width: 100vw;">
+<div class="auth">
+    <img src="../img/detdom.png" style="    object-fit: cover;object-position: center;width: auto;height: 80%;">
+    <div class="auth-content">
+        <div class="auth-top">
+            <a href="" class="active">Регистрация</a>
+        </div>
+        <h1>Продолжаем регистрацию!</h1>
+        <p class="subtitle">Это отнимет у Вас буквально пару секунд</p>
+        <form id="detdom" class="auth-form" action="post">
+            <input id="fio" type="text" placeholder="Фамилия Имя Отчество">
+            <input id="town" type="text" placeholder="Город">
+            <input id="school" type="text" placeholder="Наиминование учереждения">
+
+            <input class="submit" type="submit" value="Продолжить">
+        </form>
+    </div>
+</div>
+
+<script>
+    detdom.onsubmit = (e) => {
+        e.preventDefault()
+
+        const body = {
+            fioParam: fio.value,
+            townParam: town.value,
+            schoolParam: school.value,
+        }
+
+        localStorage.setItem('detdom', JSON.stringify(body))
+
+        document.location.href = './childreg.php'
+    }
+</script>
+</body>
+</html>
